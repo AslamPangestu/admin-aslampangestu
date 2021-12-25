@@ -19,6 +19,22 @@
       "repeatable": false,
       "component": "sections.hero",
       "required": true
+    },
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "profileImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": ["files", "images", "videos"],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
     }
   }
 }
