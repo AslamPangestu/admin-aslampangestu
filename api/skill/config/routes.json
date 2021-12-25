@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/writers",
-      "handler": "writer.find",
+      "path": "/skills",
+      "handler": "skill.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/writers/count",
-      "handler": "writer.count",
+      "path": "/skills/count",
+      "handler": "skill.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/writers/:id",
-      "handler": "writer.findOne",
+      "path": "/skills/:id",
+      "handler": "skill.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/writers",
-      "handler": "writer.create",
+      "path": "/skills",
+      "handler": "skill.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/writers/:id",
-      "handler": "writer.update",
+      "path": "/skills/:id",
+      "handler": "skill.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/writers/:id",
-      "handler": "writer.delete",
+      "path": "/skills/:id",
+      "handler": "skill.delete",
       "config": {
         "policies": []
       }
