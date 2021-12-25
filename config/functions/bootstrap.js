@@ -6,7 +6,6 @@ const mime = require("mime-types");
 const {
   categories,
   homepage,
-  writers,
   articles,
   global,
 } = require("../../data/data.json");
@@ -97,7 +96,7 @@ async function createEntry({ model, entry, files }) {
 async function importCategories() {
   return Promise.all(
     categories.map((category) => {
-      return createEntry({ model: "category", entry: category });
+      return createEntry({ model: "articleCategory", entry: category });
     })
   );
 }
@@ -109,38 +108,20 @@ async function importHomepage() {
   await createEntry({ model: "homepage", entry: homepage, files });
 }
 
-async function importWriters() {
-  return Promise.all(
-    writers.map(async (writer) => {
-      const files = {
-        picture: getFileData(`${writer.email}.jpg`),
-      };
-      return createEntry({
-        model: "writer",
-        entry: writer,
-        files,
-      });
-    })
-  );
-}
-
 // Randomly set relations on Article to avoid error with MongoDB
-function getEntryWithRelations(article, categories, authors) {
+function getEntryWithRelations(article, categories) {
   const isMongoose = strapi.config.connections.default.connector == "mongoose";
 
   if (isMongoose) {
     const randomRelation = (relation) =>
       relation[Math.floor(Math.random() * relation.length)].id;
-    delete article.category.id;
+    delete article.articleCategory.id;
     delete article.author.id;
 
     return {
       ...article,
-      category: {
+      articleCategory: {
         _id: randomRelation(categories),
-      },
-      author: {
-        _id: randomRelation(authors),
       },
     };
   }
@@ -149,13 +130,12 @@ function getEntryWithRelations(article, categories, authors) {
 }
 
 async function importArticles() {
-  const categories = await strapi.query("category").find();
-  const authors = await strapi.query("writer").find();
+  const categories = await strapi.query("articleCategory").find();
 
   return Promise.all(
     articles.map((article) => {
       // Get relations for each article
-      const entry = getEntryWithRelations(article, categories, authors);
+      const entry = getEntryWithRelations(article, categories);
 
       const files = {
         image: getFileData(`${article.slug}.jpg`),
@@ -184,14 +164,12 @@ async function importSeedData() {
     global: ["find"],
     homepage: ["find"],
     article: ["find", "findone"],
-    category: ["find", "findone"],
-    writer: ["find", "findone"],
+    articleCategory: ["find", "findone"],
   });
 
   // Create all entries
   await importCategories();
   await importHomepage();
-  await importWriters();
   await importArticles();
   await importGlobal();
 }

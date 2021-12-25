@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "article_categories",
   "info": {
-    "name": "category"
+    "name": "Article Category",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -13,13 +14,8 @@
       "type": "string",
       "required": true
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "name",
-      "required": true
-    },
     "articles": {
-      "via": "category",
+      "via": "articleCategory",
       "collection": "article"
     }
   }
