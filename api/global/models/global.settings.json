@@ -22,10 +22,12 @@
     },
     "siteName": {
       "type": "string",
+      "displayName": "Site Name",
       "required": true
     },
     "defaultSeo": {
       "type": "component",
+      "displayName": "SEO",
       "repeatable": false,
       "component": "shared.seo",
       "required": true

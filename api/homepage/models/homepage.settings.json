@@ -25,6 +25,7 @@
       "model": "file",
       "via": "related",
       "allowedTypes": ["files", "images", "videos"],
+      "displayName": "Profile",
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}

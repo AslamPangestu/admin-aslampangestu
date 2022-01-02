@@ -17,6 +17,7 @@
     },
     "iconName": {
       "type": "string",
+      "displayName": "Icon Name",
       "required": true
     },
     "url": {

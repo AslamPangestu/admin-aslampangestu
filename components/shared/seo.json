@@ -8,15 +8,18 @@
   "attributes": {
     "metaTitle": {
       "type": "string",
+      "displayName": "Meta Title",
       "required": true
     },
     "metaDescription": {
       "type": "text",
+      "displayName": "Meta Description",
       "required": true
     },
     "shareImage": {
       "model": "file",
       "via": "related",
+      "displayName": "Share Image",
       "allowedTypes": [
         "images"
       ],
