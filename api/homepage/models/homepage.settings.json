@@ -9,15 +9,8 @@
     "timestamps": true
   },
   "attributes": {
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.seo"
-    },
-    "hero": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.hero",
+    "title": {
+      "type": "string",
       "required": true
     },
     "fullName": {
