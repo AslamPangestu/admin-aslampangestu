@@ -16,8 +16,22 @@
       "type": "string",
       "required": true
     },
+    "url": {
+      "type": "string"
+    },
+    "clientName": {
+      "type": "string"
+    },
     "description": {
       "type": "text",
+      "required": true
+    },
+    "yearStart": {
+      "type": "integer",
+      "required": true
+    },
+    "yearEnd": {
+      "type": "integer",
       "required": true
     },
     "image": {
@@ -27,6 +41,11 @@
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}
+    },
+    "workPlace": {
+      "model": "work-place",
+      "displayName": "Work Place",
+      "via": "workPlaces"
     },
     "projectCategory": {
       "model": "project-category",
