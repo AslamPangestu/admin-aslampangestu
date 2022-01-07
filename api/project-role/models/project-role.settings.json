@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_roles",
+  "info": {
+    "name": "Project Role",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "via": "project",
+      "collection": "project"
+    }
+  }
+}

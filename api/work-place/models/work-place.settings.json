@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_places",
+  "info": {
+    "name": "Work Place",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "via": "project",
+      "collection": "project"
+    }
+  }
+}
