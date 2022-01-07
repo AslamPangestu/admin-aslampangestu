@@ -15,6 +15,14 @@
       "type": "string",
       "required": true
     },
+    "yearStart": {
+      "type": "integer",
+      "required": true
+    },
+    "yearEnd": {
+      "type": "integer",
+      "required": true
+    },
     "projects": {
       "via": "workPlace",
       "collection": "project"
