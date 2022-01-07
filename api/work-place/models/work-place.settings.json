@@ -16,7 +16,7 @@
       "required": true
     },
     "projects": {
-      "via": "project",
+      "via": "workPlace",
       "collection": "project"
     }
   }

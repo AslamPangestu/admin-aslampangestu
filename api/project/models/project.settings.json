@@ -45,7 +45,12 @@
     "workPlace": {
       "model": "work-place",
       "displayName": "Work Place",
-      "via": "workPlaces"
+      "via": "projects"
+    },
+    "projectRole": {
+      "model": "project-role",
+      "displayName": "Role",
+      "via": "projects"
     },
     "projectCategory": {
       "model": "project-category",
