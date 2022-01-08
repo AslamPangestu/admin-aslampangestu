@@ -1,8 +1,8 @@
 {
-  "name": "backend",
+  "name": "aslampangestu-admin",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Admin website for my personal website",
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",
@@ -34,7 +34,7 @@
     "strapi-utils": "3.6.8"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "aslampangestu"
   },
   "strapi": {
     "uuid": "375dabbf-7e44-4376-9ccd-01e68fa90926",

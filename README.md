@@ -1,3 +1,3 @@
-# Strapi application
+# Personal Website Admin
 
-A quick description of your strapi application
+A administration website for my own personal website
