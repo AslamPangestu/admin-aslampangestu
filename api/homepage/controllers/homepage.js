@@ -15,15 +15,18 @@ module.exports = {
   async findAll() {
     const { contact, homepage, project, skill } = strapi.models;
 
-    const contactEntity = await strapi.services.contact.find();
-    const homepageEntity = await strapi.services.homepage.find();
-    const projectEntity = await strapi.services.project.find();
-    const skillEntity = await strapi.services.skill.find();
+    const [contactEntity, homepageEntity, projectEntity, skillEntity] =
+      await Promise.all([
+        strapi.services.contact.find(),
+        strapi.services.homepage.find(),
+        strapi.services.project.find(),
+        strapi.services.skill.find(),
+      ]);
     const res = {
       homepage: sanitizeEntity(homepageEntity, { model: homepage }),
-      contact: sanitizeEntity(contactEntity, { model: contact }),
-      project: sanitizeEntity(projectEntity, { model: project }),
-      skill: sanitizeEntity(skillEntity, { model: skill }),
+      contacts: sanitizeEntity(contactEntity, { model: contact }),
+      projects: sanitizeEntity(projectEntity, { model: project }),
+      skills: sanitizeEntity(skillEntity, { model: skill }),
     };
     return res;
   },
