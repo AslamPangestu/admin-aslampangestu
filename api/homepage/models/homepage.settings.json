@@ -21,6 +21,10 @@
       "type": "text",
       "required": true
     },
+    "currentRole": {
+      "type": "string",
+      "required": true
+    },
     "profileImage": {
       "model": "file",
       "via": "related",
