@@ -7,13 +7,17 @@
   },
   "options": {
     "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
+    "timestamps": true
   },
   "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",
+      "required": true
+    },
+    "iconName": {
+      "type": "string",
+      "displayName": "Icon Name",
       "required": true
     },
     "description": {
