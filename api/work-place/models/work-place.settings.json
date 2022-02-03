@@ -20,7 +20,8 @@
       "required": true
     },
     "yearEnd": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "projects": {
       "via": "workPlace",

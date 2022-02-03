@@ -31,7 +31,8 @@
       "required": true
     },
     "yearEnd": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "image": {
       "model": "file",
