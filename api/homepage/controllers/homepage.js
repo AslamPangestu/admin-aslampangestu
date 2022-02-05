@@ -19,7 +19,10 @@ module.exports = {
       await Promise.all([
         strapi.services.contact.find(),
         strapi.services.homepage.find(),
-        strapi.services.project.find(),
+        strapi.services.project.find({
+          _limit: "10",
+          _sort: "yearStart:ASC,yearEnd:ASC",
+        }),
         strapi.services.skill.find(),
       ]);
     const res = {
