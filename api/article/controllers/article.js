@@ -14,25 +14,24 @@ module.exports = {
 
   async find(ctx) {
     const { page } = ctx.params;
-    const currentPage = parseInt(page);
+    const currentPage = page ? parseInt(page) : 1;
     const [entity, total] = await Promise.all([
       strapi.services.article.find({
         _sort: "updatedAt:ASC",
-        _start: (currentPage * 10).toString() || "1",
-        _limit: "10",
+        _start: currentPage * 10 || 1,
+        _limit: 10,
       }),
       strapi.services.article.count(),
     ]);
-    const countTotalPage = total === "0" ? 1 : Math.ceil(parseInt(total) / 10);
-    const countPrevPage =
-      currentPage === 1 ? "1" : (currentPage - 1).toString();
+    const countTotalPage = total === 0 ? 1 : Math.ceil(parseInt(total) / 10);
+    const countPrevPage = currentPage === 1 ? 1 : currentPage - 1;
     const countNextPage =
-      page === countTotalPage ? countTotalPage : (currentPage + 1).toString();
+      currentPage === countTotalPage ? countTotalPage : currentPage + 1;
     return {
       prevPage: countPrevPage,
-      currentPage: page,
+      currentPage: currentPage,
       nextPage: countNextPage,
-      totalPage: countTotalPage.toString(),
+      totalPage: countTotalPage,
       total,
       data: sanitizeEntity(entity, { model: strapi.models.article }),
     };
